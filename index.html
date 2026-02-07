@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Timetable | Cybersecurity Engineering</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Libraries for Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Controls Bar -->
+        <header class="controls-header">
+            <div class="logo-area">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span id="dept-name">Cybersecurity Engineering</span>
+            </div>
+
+            <div class="actions">
+                <button id="lang-toggle" class="btn-glass" aria-label="Toggle Language">
+                    <i class="fa-solid fa-globe"></i> <span id="lang-text">English</span>
+                </button>
+                <div class="export-group">
+                    <button id="btn-png" class="btn-glass primary" title="Download PNG">
+                        <i class="fa-solid fa-image"></i> <span>PNG</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Timetable Content to Verify/Export -->
+        <main id="timetable-capture" class="timetable-wrapper">
+            <div class="glass-panel">
+                <div class="timetable-header">
+                    <h1 id="title-main">Timetable - Level 3, Semester 2</h1>
+                    <div class="meta-info">
+                        <span id="sections-info"><i class="fa-solid fa-users"></i> Sections A & B</span>
+                        <span class="academic-year"><i class="fa-regular fa-calendar"></i> 2025-2026</span>
+                    </div>
+                </div>
+
+                <div class="schedule-container" id="schedule-grid">
+                    <!-- Schedule items will be injected here by JS -->
+                </div>
+
+                <footer class="timetable-footer">
+                    <div class="footer-note">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span id="footer-text">Sunday lectures are online if available.</span>
+                    </div>
+                    <div class="designed-by">Designed by oph</div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

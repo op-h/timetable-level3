@@ -1,0 +1,376 @@
+:root {
+    --primary-hue: 250;
+    --primary: hsl(var(--primary-hue), 80%, 60%);
+    --primary-dark: hsl(var(--primary-hue), 80%, 40%);
+    --accent: hsl(320, 80%, 60%);
+    --bg-gradient: linear-gradient(135deg, hsl(240, 30%, 10%), hsl(280, 40%, 15%));
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --card-bg: rgba(255, 255, 255, 0.07);
+    --card-hover: rgba(255, 255, 255, 0.12);
+
+    --font-ar: 'Cairo', sans-serif;
+    --font-en: 'Inter', sans-serif;
+}
+
+[data-theme="light"] {
+    --bg-gradient: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --text-main: #333333;
+    --text-muted: #666666;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --card-hover: rgba(255, 255, 255, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-ar);
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+body[lang="en"] {
+    font-family: var(--font-en);
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header & Controls */
+.controls-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 20px;
+}
+
+.logo-area {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn-glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 8px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-glass:hover {
+    background: var(--card-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-glass.primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+.btn-glass.primary:hover {
+    background: var(--primary-dark);
+}
+
+.export-group {
+    display: flex;
+    gap: 8px;
+}
+
+/* Main Timetable Area */
+.timetable-wrapper {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.timetable-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 20px;
+}
+
+.timetable-header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.timetable-header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.meta-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+/* Schedule Grid */
+.schedule-container {
+    display: grid;
+    gap: 20px;
+}
+
+/* Day Row Styles */
+.day-row {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-left: 5px solid var(--primary);
+    transition: transform 0.2s;
+}
+
+.day-row:hover {
+    transform: translateX(5px);
+    background: var(--card-hover);
+}
+
+/* Make RTL transform work correctly */
+html[dir="rtl"] .day-row:hover {
+    transform: translateX(-5px);
+}
+
+.day-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 120px;
+}
+
+.sessions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.session-card {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+}
+
+.session-card.lab {
+    border-right: 3px solid #4caf50;
+}
+
+html[dir="ltr"] .session-card.lab {
+    border-right: none;
+    border-left: 3px solid #4caf50;
+}
+
+.session-card.theory {
+    border-right: 3px solid #2196f3;
+}
+
+html[dir="ltr"] .session-card.theory {
+    border-right: none;
+    border-left: 3px solid #2196f3;
+}
+
+.session-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.session-info {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tag {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tag.lab {
+    background: rgba(76, 175, 80, 0.2);
+    color: #81c784;
+}
+
+.tag.theory {
+    background: rgba(33, 150, 243, 0.2);
+    color: #64b5f6;
+}
+
+/* Desktop View enhancement: Row layout for days */
+@media (min-width: 768px) {
+    .day-row {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .day-header {
+        width: 150px;
+        flex-shrink: 0;
+        padding-top: 15px;
+        font-size: 1.4rem;
+    }
+}
+
+.timetable-footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.designed-by {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--accent);
+    opacity: 0.8;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+/* Mobile Enhancements */
+@media (max-width: 480px) {
+    .app-container {
+        padding: 10px;
+    }
+
+    .glass-panel {
+        padding: 15px;
+    }
+
+    .timetable-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .session-card {
+        padding: 12px;
+    }
+
+    .session-title {
+        font-size: 1rem;
+    }
+
+    .controls-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .logo-area {
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        /* Stack icon and text for better look */
+        gap: 8px;
+    }
+
+    #dept-name {
+        font-size: 1.1rem;
+        line-height: 1.4;
+        /* Apply the pro gradient here too */
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-glass {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Loading/Export Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: white;
+    font-size: 1.5rem;
+    backdrop-filter: blur(5px);
+}
