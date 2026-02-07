@@ -101,18 +101,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     {
                         subject: { ar: "بروتوكولات شبكات الحاسوب", en: "Computer Network Protocols" },
                         professor: { ar: "ا.م.د. محمود شكر محمود", en: "Dr. Mahmoud Shuker" },
-                        type: { ar: "نظري", en: "Theory" },
+                        type: { ar: "عملي", en: "Lab" },
                         time: "10:30",
                         room: { ar: "قاعة رقم 3", en: "Hall 3" },
-                        isLab: false
+                        isLab: true
                     },
                     {
                         subject: { ar: "بروتوكول شبكات الحاسب", en: "Computer Network Protocols" },
                         professor: { ar: "ا.م.د. محمود شكر محمود", en: "Dr. Mahmoud Shuker" },
-                        type: { ar: "عملي", en: "Lab" },
+                        type: { ar: "نظري", en: "Theory" },
                         time: "12:30",
                         room: { ar: "مختبر الامنية", en: "Security Lab" },
-                        isLab: true
+                        isLab: false
                     },
                     {
                         subject: { ar: "تصميم المواقع الإلكترونية", en: "Web Design" },
