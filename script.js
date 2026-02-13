@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         subject: { ar: "الذكاء الاصطناعي", en: "Artificial Intelligence" },
                         professor: { ar: "ا.د. دلال عبد المحسن", en: "Prof. Dalal Abdul Mohsin" },
                         type: { ar: "نظري", en: "Theory" },
-                        time: "10:30",
+                        time: "11:00",
                         room: { ar: "قاعة رقم 1", en: "Hall 1" },
                         isLab: false
                     },
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         subject: { ar: "اساسيات الامن السيبراني", en: "Cybersecurity Fundamentals" },
                         professor: { ar: "ا.ميثم علي ناجي", en: "Mr. Maitham Ali Naji" },
                         type: { ar: "نظري", en: "Theory" },
-                        time: "10:30",
+                        time: "11:00",
                         room: { ar: "قاعة رقم 3", en: "Hall 3" },
                         isLab: false
                     },
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         subject: { ar: "نظم التشغيل", en: "Operating Systems" },
                         professor: { ar: "م.د. لؤي طالب", en: "Dr. Luay Talib" },
                         type: { ar: "عملي", en: "Lab" },
-                        time: "10:30",
+                        time: "11:00",
                         room: { ar: "مختبر الامنية", en: "Security Lab" },
                         isLab: true
                     },
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         subject: { ar: "بروتوكولات شبكات الحاسوب", en: "Computer Network Protocols" },
                         professor: { ar: "ا.م.د. محمود شكر محمود", en: "Dr. Mahmoud Shuker" },
                         type: { ar: "عملي", en: "Lab" },
-                        time: "10:30",
+                        time: "11:00",
                         room: { ar: "قاعة رقم 3", en: "Hall 3" },
                         isLab: true
                     },
